@@ -49,6 +49,18 @@ public abstract class ShipmentOrder implements SummaryPrintable {
                 orderNumber, customerName, lastCalculatedPrice);
     }
 
+    protected void validateSpecificRules() { }
+
+    protected double applyBusinessDiscount(double price) {
+        return price;
+    }
+
+    @Override
+    public String buildSummaryLine() {
+        return String.format("[%s] %s | %s | %.2f PLN",
+                orderNumber, customerName, getShipmentType(), lastCalculatedPrice);
+    }
+
     protected abstract double calculateBasePrice();
     protected abstract double calculateAdditionalFee();
     public abstract String getShipmentType();
