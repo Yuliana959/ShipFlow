@@ -19,4 +19,8 @@ public abstract class ShipmentOrder implements SummaryPrintable {
     public String getOrderNumber()         { return orderNumber; }
     public String getCustomerName()        { return customerName; }
     public double getLastCalculatedPrice() { return lastCalculatedPrice; }
+
+    protected abstract double calculateBasePrice();
+    protected abstract double calculateAdditionalFee();
+    public abstract String getShipmentType();
 }
